@@ -26,7 +26,7 @@ Y decir la cantidad de participantes
 
 
 
-Segundo Avance (operadores)
+Segundo Avance (operadores)                   
 #primero le voy a pedir al usuario que digite el primer y ultimo día del intervalo de tiempo
 #que quiere para hacer la reunión.
 
