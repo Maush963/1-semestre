@@ -22,3 +22,34 @@ Y decir la cantidad de participantes
 Si cantidad de usuarios que dijeron que si>90%
 Devolver las horas en las que un 90% de los participantes puedan asistir
 Y decir la cantidad de participantes
+
+
+
+
+Segundo Avance (operadores)
+#primero le voy a pedir al usuario que digite el primer y ultimo día del intervalo de tiempo
+#que quiere para hacer la reunión.
+
+print("Entre que días quiere realizar la reunión.")
+diai=int(input("Digite el primer día de este intervalo: "))
+diaf=int(input("Digite el último día de este intervalo: "))
+intervalo=diaf-diai
+print(f"Cantidad de días de intervalo: {intervalo}")
+print("\nDigite las posibles horas para la reunión")
+hora1=int(input("Primera hora"))
+usuarios=int(("\nDigite el número de usuarios"))
+
+print("Perfecto, ahora los usuarios tendran que poner las fechas disponibles que tiene cada uno")
+
+
+cantidad_si=int(("\nIngrese la cantidad de usuarios que si pueden en n fecha"))
+if (cantidad_si>(usuarios*.6))
+print("la cantidad de usuarios que digeron que si fueron más del 60%")
+else
+if (cantidad_si>(usuarios*.8))
+print("la cantidad de usuarios que digeron que si fueron más del 80%")
+else
+if (cantidad_si>(usuarios*1))
+print("la cantidad de usuarios que digeron que si fue el 100%")
+else
+print("parece que la mayoría de los usuarios no pueden en un día similar")
