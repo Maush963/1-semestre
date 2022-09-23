@@ -26,6 +26,8 @@ Y decir la cantidad de participantes
 
 #primero le voy a pedir al usuario que digite el primer y ultimo día del intervalo de tiempo
 #que quiere para hacer la reunión.
+#primero le voy a pedir al usuario que digite el primer y ultimo día del intervalo de tiempo
+#que quiere para hacer la reunión.
 """
 Primero tengo que saber que tan grande va a ser el intervalo de tiempo para su reunion, cuales son los dias posibles para realizarla,
 para esto pregunto directamente el dia inicial y el dia final.
@@ -67,6 +69,15 @@ print(f"Este es el intervalo: {intervalo()} días")
 
 tiempo = Intervalo()
 
+def horas():
+    canth=int(input("Cuantas horas quiere poner para la reunion?"))
+    while(canth>0):
+        print("\nDigite las posibles horas para la reunión")
+        hora1=int(input("hora:"))
+        canth=canth-1
+        print(hora1)
+horas()
+
 
 print("Perfecto, ahora los usuarios tendran que poner las fechas disponibles que tiene cada uno")
 
@@ -90,16 +101,8 @@ while (usuarios!=0):
     usuarios=usuarios-1
     print ("a")
     fusuarios()
-    
-def horas():
-    canth=int(input("Cuantas horas quiere poner para la reunion?"))
-    while(canth>0):
-        print("\nDigite las posibles horas para la reunión")
-        hora1=int(input("hora:"))
-        canth=canth-1
-        print(hora1)
-        
-horas()
+
+
 
 cantidad_si=int(("\nIngrese la cantidad de usuarios que si pueden en n fecha"))
 if (cantidad_si>(usuarios*.6))
