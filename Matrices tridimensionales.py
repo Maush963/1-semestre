@@ -62,17 +62,33 @@ meses=[[[1,"enero",usuariosd],[2,"enero",usuariosd],[3,"enero",usuariosd],[4,"en
            [31,"diciembre",usuariosd]],
  
            ] #enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre diciembre
+"""
+def mes (meses):
+    for cont in meses:
+        for info in cont:
+            for diau in info:
+                if(diau<mesi AND diau<diai):
+                    if (diau>mesf AND diau>diaf):
+                        asis=input(print(f"¿Puede asistir a la reunion este día? {diau}\t, si("s")/no("n"): ")
+                        if(asis=="s"):
+                            usuariosd=+ asis
+                        print(f"Estos son los usuarios que pueden asistir este día")
+                        
+                        
 
+
+
+"""
 def mes (meses):
     for cont in meses:
         print (f"{cont}")
         if cont==mesi:
             print ("su mes es marzo")
-        for i in cont:
-            print(f"{i}")
-            for j in i:
-                print(f"({j})",end=" ")
-                if j==diai:
+        for info in cont:
+            print(f"{info}")
+            for diau in info:
+                print(f"({diau})",end=" ")
+                if diau==diai:
                     tiempo=diasmes-diai
                     print("LOTERIAA")
             print("\n")
