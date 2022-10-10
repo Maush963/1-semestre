@@ -1,0 +1,155 @@
+
+# FUNCION PARA DETERMINAR USUARIOS QUE VAN A IR/DIA
+def mes(meses, acum, mesi, mesf, diai, diaf):
+    asis = 0
+    usuariosc = 4  # (Cantidad total de involucrados)
+    inter = []
+    # este for toma en cuenta to do un mes, range=12
+    for cont in meses:
+        # este for toma en cuenta toda la información, pero no lo que tiene en su interior
+        for info in cont:
+            # con estos dos if, me aseguro de que este dentro del rango del intervalo
+            if (info[1] == mesi and info[0] >= diai):
+                # print(info)
+                inter.append(info)
+            if (info[1] <= mesf and info[1] > mesi):
+                # print(info)
+                inter.append(info)
+                if info[0] == diaf and info[1] == mesf:
+                    break
+    return inter
+
+
+def asistencia(intervalo):
+    info = 0
+    for cont in intervalo:
+        acum = 0
+        while acum != 1:
+            asis = int(input(f"¿Puedes asistir este día?\t si(1) , no(0)"))
+            info = asis + info
+            acum = int(input("¿Quiere agregar otro usuario para este día?\t si(1) , no(0)"))
+            print (asis)
+            print(cont[0])
+
+
+
+# aqui estoy encontrando el día que digito el usuario para restarle el día que digito a los dias del mes, de esta forma lo voy a sumar más tarde con los días de otros meses
+
+'''
+# en este while estoy preguntando a todos los usuarios si pueden ir
+                while acum < usuariosc:
+                    print('cont: ', cont)
+                    print('info: ', info)
+                    asis = int(input(f"¿Puede asistir a la reunion este día? {info[0]}\t, si(1)/no(0): "))
+                    # aqui esta iterando la cantidad de usuarios que si pueden asistir a la reunion con un IF, lueog lo imprime
+                    if asis == 1:
+                        info[2] += asis
+                        print(info[2])
+                        acum += 1
+                    else:
+                        break
+                if info[1] <= mesf and info[0] <= diaf:
+                    break
+                porcentaje = (info[2] / usuariosc) * 100
+                print("este es el porcentaje", porcentaje)
+'''
+
+
+def main():
+    acum = 0
+    usuariosd = 0  # Cantidad de usuarios que si van a ir
+    print("!Bienvenido!\nPara realizar su junta porfavor")
+    mesi = int(input('Digite el mes inicial: '))  # 3
+    # Con este while me aseguro de mesi este dentro del rango de un mes
+    while mesi < 1 or mesi > 12:
+        print("Esta no es una expresión valida")
+        mesi = int(input('Digite el mes inicial una vez más: '))
+
+    mesf = int(input('Digite el mes final: '))  # 6
+    # Con este while me aseguro de mesf sea un mes
+    while mesf < mesi:
+        mesf = int(input("El mes final no puede ser menor al inicial, inténtelo de nuevo: "))
+    while mesf < 1 or mesf > 12:
+        print("Esta no es una expresión valida")
+        mesf = int(input('Digite el mes final una vez más: '))
+
+    diai = int(input('Digite el día inicial: '))  # 10
+    # Con este while me aseguro de diai sea un dia de un mes
+    while diai < 1 or diai > 31:
+        print("Esta no es una expresión valida")
+        diai = int(input('Digite el día inicial una vez más: '))
+
+    diaf = int(input('Digite el día final: '))  # 12
+    # Con este while me aseguro de diaf sea un dia de un mes
+    while diaf < 1 or diaf > 31:
+        print("Esta no es una expresión valida")
+        diaf = int(input('Digite el día final una vez más: '))
+
+    diasmes = 31
+    meses = [[[1, 1], [2, 1], [3, 1], [4, 1], [5, 1], [6, 1], [7, 1], [8, 1], [9, 1], [10, 1],
+              [11, 1], [12, 1], [13, 1], [14, 1], [15, 1], [16, 1], [17, 1], [18, 1], [19, 1], [20, 1],
+              [22, 1], [22, 1], [23, 1], [24, 1], [25, 1], [26, 1], [27, 1], [28, 1], [29, 1], [30, 1],
+              [31, 1]],
+
+             [[1, 2], [2, 2], [3, 2], [4, 2], [5, 2], [6, 2], [7, 2], [8, 2], [9, 2], [10, 2],
+              [11, 2], [12, 2], [13, 2], [14, 2], [15, 2], [16, 2], [17, 2], [18, 2], [19, 2], [20, 2],
+              [22, 2], [22, 2], [23, 2], [24, 2], [25, 2], [26, 2], [27, 2], [28, 2]],
+
+             [[1, 3], [2, 3], [3, 3], [4, 3], [5, 3], [6, 3], [7, 3], [8, 3], [9, 3], [10, 3],
+              [11, 3], [12, 3], [13, 3], [14, 3], [15, 3], [16, 3], [17, 3], [18, 3], [19, 3], [20, 3],
+              [22, 3], [22, 3], [23, 3], [24, 3], [25, 3], [26, 3], [27, 3], [28, 3], [29, 3], [30, 3],
+              [31, 3]],
+
+             [[1, 4], [2, 4], [3, 4], [4, 4], [5, 4], [6, 4], [7, 4], [8, 4], [9, 4], [10, 4],
+              [11, 4], [12, 4], [13, 4], [14, 4], [15, 4], [16, 4], [17, 4], [18, 4], [19, 4], [20, 4],
+              [22, 4], [22, 4], [23, 4], [24, 4], [25, 4], [26, 4], [27, 4], [28, 4], [29, 4], [30, 4],
+              ],
+
+             [[1, 5], [2, 5], [3, 5], [4, 5], [5, 5], [6, 5], [7, 5], [8, 5], [9, 5], [10, 5],
+              [11, 5], [12, 5], [13, 5], [14, 5], [15, 5], [16, 5], [17, 5], [18, 5], [19, 5], [20, 5],
+              [22, 5], [22, 5], [23, 5], [24, 5], [25, 5], [26, 5], [27, 5], [28, 5], [29, 5], [30, 5],
+              [31, 5]],
+
+             [[1, 6], [2, 6], [3, 6], [4, 6], [5, 6], [6, 6], [7, 6], [8, 6], [9, 6], [10, 6],
+              [11, 6], [12, 6], [13, 6], [14, 6], [15, 6], [16, 6], [17, 6], [18, 6], [19, 6], [20, 6],
+              [22, 6], [22, 6], [23, 6], [24, 6], [25, 6], [26, 6], [27, 6], [28, 6], [29, 6], [30, 6],
+              ],
+
+             [[1, 7], [2, 7], [3, 7], [4, 7], [5, 7], [6, 7], [7, 7], [8, 7], [9, 7], [10, 7],
+              [11, 7], [12, 7], [13, 7], [14, 7], [15, 7], [16, 7], [17, 7], [18, 7], [19, 7], [20, 7],
+              [22, 7], [22, 7], [23, 7], [24, 7], [25, 7], [26, 7], [27, 7], [28, 7], [29, 7], [30, 7],
+              [31, 7]],
+
+             [[1, 8], [2, 8], [3, 8], [4, 8], [5, 8], [6, 8], [7, 8], [8, 8], [9, 8], [10, 8],
+              [11, 8], [12, 8], [13, 8], [14, 8], [15, 8], [16, 8], [17, 8], [18, 8], [19, 8], [20, 8],
+              [22, 8], [22, 8], [23, 8], [24, 8], [25, 8], [26, 8], [27, 8], [28, 8], [29, 8], [30, 8],
+              [31, 8]],
+
+             [[1, 9], [2, 9], [3, 9], [4, 9], [5, 9], [6, 9], [7, 9], [8, 9], [9, 9], [10, 9],
+              [11, 9], [12, 9], [13, 9], [14, 9], [15, 9], [16, 9], [17, 9], [18, 9], [19, 9], [20, 9],
+              [22, 9], [22, 9], [23, 9], [24, 9], [25, 9], [26, 9], [27, 9], [28, 9], [29, 9], [30, 9],
+              ],
+
+             [[1, 10], [2, 10], [3, 10], [4, 10], [5, 10], [6, 10], [7, 10], [8, 10], [9, 10], [10, 10],
+              [11, 10], [12, 10], [13, 10], [14, 10], [15, 10], [16, 10], [17, 10], [18, 10], [19, 10], [20, 10],
+              [22, 10], [22, 10], [23, 10], [24, 10], [25, 10], [26, 10], [27, 10], [28, 10], [29, 10], [30, 10],
+              [31, 10]],
+
+             [[1, 11], [2, 11], [3, 11], [4, 11], [5, 11], [6, 11], [7, 11], [8, 11], [9, 11], [10, 11],
+              [11, 11], [12, 11], [13, 11], [14, 11], [15, 11], [16, 11], [17, 11], [18, 11], [19, 11], [20, 11],
+              [22, 11], [22, 11], [23, 11], [24, 11], [25, 11], [26, 11], [27, 11], [28, 11], [29, 11], [30, 11],
+              ],
+
+             [[1, 12], [2, 12], [3, 12], [4, 12], [5, 12], [6, 12], [7, 12], [8, 12], [9, 12], [10, 12],
+              [11, 12], [12, 12], [13, 12], [14, 12], [15, 12], [16, 12], [17, 12], [18, 12], [19, 12], [20, 12],
+              [22, 12], [22, 12], [23, 12], [24, 12], [25, 12], [26, 12], [27, 12], [28, 12], [29, 12], [30, 12],
+              [31, 12]]
+
+             ]  # enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre
+
+    intervalo = mes(meses, acum, mesi, mesf, diai, diaf)
+    print(intervalo)
+    asistencia(intervalo)
+
+
+main()
