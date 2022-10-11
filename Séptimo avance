@@ -5,14 +5,17 @@ def mes(meses, acum, mesi, mesf, diai, diaf):
     usuariosc = 4  # (Cantidad total de involucrados)
     inter = []
     # este for toma en cuenta to do un mes, range=12
-    for cont in meses:
+    for cont in meses:  # (cont es el mes actual)
         # este for toma en cuenta toda la información, pero no lo que tiene en su interior
-        for info in cont:
+        for info in cont:  # info es la fecha (día/mes)
             # con estos dos if, me aseguro de que este dentro del rango del intervalo
-            if (info[1] == mesi and info[0] >= diai):
+            if mesf == mesi and info[0] == diaf + 1:
+                break
+
+            if info[1] == mesi and info[0] >= diai:
                 # print(info)
                 inter.append(info)
-            if (info[1] <= mesf and info[1] > mesi):
+            if mesf >= info[1] > mesi:
                 # print(info)
                 inter.append(info)
                 if info[0] == diaf and info[1] == mesf:
@@ -21,6 +24,31 @@ def mes(meses, acum, mesi, mesf, diai, diaf):
 
 
 def asistencia(intervalo):
+    cantusuarios = int(input("Digite la cantidad de usuarios que asistirán a la reunion: "))
+    info = 0
+    acm = cantusuarios + 1
+    for cont in intervalo:
+        for i in range(cantusuarios):
+            asis = int(
+                input(f"¿El usuario {i + 1} puede asistir el dia {cont[0]} del mes {cont[1]}?\t si(1) , no(0): "))
+            info = asis + info
+            acm = acm - 1
+
+            if acm == 0:
+                info = 0
+                info = asis + info
+                acm = cantusuarios
+
+            if asis == 0:
+                print(f"El usuario {i + 1}, no asiste el dia {cont[0]} del mes {cont[1]} "
+                      f"cantidad de usuarios que asisten este día: {info}")
+            else:
+                print(f"El usuario {i + 1}, asiste el dia {cont[0]} del mes {cont[1]}"
+                      f"cantidad de usuarios que asisten este día: {info}")
+
+
+'''
+def asistencia(intervalo):
     info = 0
     for cont in intervalo:
         acum = 0
@@ -28,12 +56,9 @@ def asistencia(intervalo):
             asis = int(input(f"¿Puedes asistir este día?\t si(1) , no(0)"))
             info = asis + info
             acum = int(input("¿Quiere agregar otro usuario para este día?\t si(1) , no(0)"))
-            print (asis)
+            print(asis)
             print(cont[0])
-
-
-
-# aqui estoy encontrando el día que digito el usuario para restarle el día que digito a los dias del mes, de esta forma lo voy a sumar más tarde con los días de otros meses
+'''
 
 '''
 # en este while estoy preguntando a todos los usuarios si pueden ir
@@ -153,3 +178,4 @@ def main():
 
 
 main()
+
