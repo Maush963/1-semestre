@@ -20,10 +20,21 @@ def mes(meses, acum, mesi, mesf, diai, diaf):
                 if info[0] == diaf and info[1] == mesf:
                     break
     return inter
-
+"""
+def quitar_intervalo(intervalo):
+    cond = 1
+    while condición == 1:
+        cond = int(input("Quieres quitar un día del intervalo? si(1), no(0): "))
+        if quitar == 1
+        for in intervalo
+            (if condicion de los días buscados)
+        else #(0)
+            cond = 0    
+"""
 
 def asistencia(intervalo):
     cantusuarios = int(input("Digite la cantidad de usuarios que asistirán a la reunion: "))
+    print("\n")
     info = 0
     acm = cantusuarios + 1
     for cont in intervalo:
@@ -31,22 +42,28 @@ def asistencia(intervalo):
         for i in range(cantusuarios):
             asis = int(
                 input(f"¿El usuario {i + 1} puede asistir el dia {cont[0]} del mes {cont[1]}?\t si(1) , no(0): "))
+            while 1 != asis != 0:
+                asis = int(input(f"Eso no es valido, escoja para 1 si y 0 para no: "))
+
             info += asis
 
             if asis == 0:
-                print(f"El usuario {i + 1}, no asiste el dia {cont[0]} del mes {cont[1]} "
-                      f"cantidad de usuarios que asisten este día: {info}")
+                print(f"El usuario {i + 1}, no asiste el dia {cont[0]} del mes {cont[1]} \n"
+                      f"---> usuarios/día: {info}\n")
             else:
-                print(f"El usuario {i + 1}, asiste el dia {cont[0]} del mes {cont[1]}"
-                      f"cantidad de usuarios que asisten este día: {info}")
+                print(f"El usuario {i + 1}, asiste el dia {cont[0]} del mes {cont[1]} \n"
+                      f"---> usuarios/día: {info}\n")
         cont[2] = info
-        print(cont)
+        print("[Día, Mes ,Usuarios/día]\n", f"   {cont}   ", "\n\n")
+
 
 def dia_asistencia(intervalo):
+    print("Estos son los mejores días para su junta:\n")
     for i in intervalo:
-        if i[2]>=2:
-            print(f"El día {i[0]} del mes {i[1]} van a asistir {i[2]} cantidad de usuarios")
-    print("Los días que no aparecieron tienen asistentes menos de dos asistentes")
+        if i[2] >= 2:
+            print(f"Día-{i[0]},  Mes-{i[1]},  Asis-{i[2]}")
+    print("\nLos días que no aparecen tienen menos de dos asistentes")
+
 
 '''
 def asistencia(intervalo):
@@ -84,10 +101,15 @@ def asistencia(intervalo):
 def main():
     acum = 0
     usuariosd = 0  # Cantidad de usuarios que si van a ir
-    print("!Bienvenido!\nPara realizar su junta porfavor")
+    print("\n______________!Bienvenido a junta2!______________\n"
+          "|                                               |\n"
+          "|                 (╯°□°）╯︵ ┻━┻                 |\n"
+          "_________________________________________________\n"
+          "    Con este programa podrá agendar una junta    \n"
+          "             Para realizar su junta              \n")
     mesi = (input('Digite el mes inicial: '))  # 3
     # Con este while me aseguro de mesi este dentro del rango de un mes
-    while int(mesi) < 1 or int(mesi) > 12 or str(mesi).isnumeric()==False:
+    while int(mesi) < 1 or int(mesi) > 12 or str(mesi).isnumeric() == False:
         print("Esta no es una expresión valida")
         mesi = (input('Digite el mes inicial una vez más: '))
     mesi = int(mesi)
@@ -118,91 +140,93 @@ def main():
               [21, 1, usuariosd], [22, 1, usuariosd], [23, 1, usuariosd], [24, 1, usuariosd], [25, 1, usuariosd],
               [26, 1, usuariosd], [27, 1, usuariosd], [28, 1, usuariosd], [29, 1, usuariosd], [30, 1, usuariosd],
               [31, 1, usuariosd]],
-              [[1, 2, usuariosd], [2, 2, usuariosd], [3, 2, usuariosd], [4, 2, usuariosd], [5, 2, usuariosd],
+             [[1, 2, usuariosd], [2, 2, usuariosd], [3, 2, usuariosd], [4, 2, usuariosd], [5, 2, usuariosd],
               [6, 2, usuariosd], [7, 2, usuariosd], [8, 2, usuariosd], [9, 2, usuariosd], [10, 2, usuariosd],
               [11, 2, usuariosd], [12, 2, usuariosd], [13, 2, usuariosd], [14, 2, usuariosd], [15, 2, usuariosd],
               [16, 2, usuariosd], [17, 2, usuariosd], [18, 2, usuariosd], [19, 2, usuariosd], [20, 2, usuariosd],
               [21, 2, usuariosd], [22, 2, usuariosd], [23, 2, usuariosd], [24, 2, usuariosd], [25, 2, usuariosd],
               [26, 2, usuariosd], [27, 2, usuariosd], [28, 2, usuariosd]],
-              [[1, 3, usuariosd], [2, 3, usuariosd], [3, 3, usuariosd], [4, 3, usuariosd], [5, 3, usuariosd],
+             [[1, 3, usuariosd], [2, 3, usuariosd], [3, 3, usuariosd], [4, 3, usuariosd], [5, 3, usuariosd],
               [6, 3, usuariosd], [7, 3, usuariosd], [8, 3, usuariosd], [9, 3, usuariosd], [10, 3, usuariosd],
               [11, 3, usuariosd], [12, 3, usuariosd], [13, 3, usuariosd], [14, 3, usuariosd], [15, 3, usuariosd],
               [16, 3, usuariosd], [17, 3, usuariosd], [18, 3, usuariosd], [19, 3, usuariosd], [20, 3, usuariosd],
               [21, 3, usuariosd], [22, 3, usuariosd], [23, 3, usuariosd], [24, 3, usuariosd], [25, 3, usuariosd],
               [26, 3, usuariosd], [27, 3, usuariosd], [28, 3, usuariosd], [29, 3, usuariosd], [30, 3, usuariosd],
               [31, 3, usuariosd]],
-              [[1, 4, usuariosd], [2, 4, usuariosd], [3, 4, usuariosd], [4, 4, usuariosd], [5, 4, usuariosd],
+             [[1, 4, usuariosd], [2, 4, usuariosd], [3, 4, usuariosd], [4, 4, usuariosd], [5, 4, usuariosd],
               [6, 4, usuariosd], [7, 4, usuariosd], [8, 4, usuariosd], [9, 4, usuariosd], [10, 4, usuariosd],
               [11, 4, usuariosd], [12, 4, usuariosd], [13, 4, usuariosd], [14, 4, usuariosd], [15, 4, usuariosd],
               [16, 4, usuariosd], [17, 4, usuariosd], [18, 4, usuariosd], [19, 4, usuariosd], [20, 4, usuariosd],
               [21, 4, usuariosd], [22, 4, usuariosd], [23, 4, usuariosd], [24, 4, usuariosd], [25, 4, usuariosd],
               [26, 4, usuariosd], [27, 4, usuariosd], [28, 4, usuariosd], [29, 4, usuariosd], [30, 4, usuariosd],
               [31, 4, usuariosd]],
-              [[1, 5, usuariosd], [2, 5, usuariosd], [3, 5, usuariosd], [4, 5, usuariosd], [5, 5, usuariosd],
+             [[1, 5, usuariosd], [2, 5, usuariosd], [3, 5, usuariosd], [4, 5, usuariosd], [5, 5, usuariosd],
               [6, 5, usuariosd], [7, 5, usuariosd], [8, 5, usuariosd], [9, 5, usuariosd], [10, 5, usuariosd],
               [11, 5, usuariosd], [12, 5, usuariosd], [13, 5, usuariosd], [14, 5, usuariosd], [15, 5, usuariosd],
               [16, 5, usuariosd], [17, 5, usuariosd], [18, 5, usuariosd], [19, 5, usuariosd], [20, 5, usuariosd],
               [21, 5, usuariosd], [22, 5, usuariosd], [23, 5, usuariosd], [24, 5, usuariosd], [25, 5, usuariosd],
               [26, 5, usuariosd], [27, 5, usuariosd], [28, 5, usuariosd], [29, 5, usuariosd], [30, 5, usuariosd],
               [31, 5, usuariosd]],
-              [[1, 6, usuariosd], [2, 6, usuariosd], [3, 6, usuariosd], [4, 6, usuariosd], [5, 6, usuariosd],
+             [[1, 6, usuariosd], [2, 6, usuariosd], [3, 6, usuariosd], [4, 6, usuariosd], [5, 6, usuariosd],
               [6, 6, usuariosd], [7, 6, usuariosd], [8, 6, usuariosd], [9, 6, usuariosd], [10, 6, usuariosd],
               [11, 6, usuariosd], [12, 6, usuariosd], [13, 6, usuariosd], [14, 6, usuariosd], [15, 6, usuariosd],
               [16, 6, usuariosd], [17, 6, usuariosd], [18, 6, usuariosd], [19, 6, usuariosd], [20, 6, usuariosd],
               [21, 6, usuariosd], [22, 6, usuariosd], [23, 6, usuariosd], [24, 6, usuariosd], [25, 6, usuariosd],
               [26, 6, usuariosd], [27, 6, usuariosd], [28, 6, usuariosd], [29, 6, usuariosd], [30, 6, usuariosd],
               [31, 6, usuariosd]],
-              [[1, 7, usuariosd], [2, 7, usuariosd], [3, 7, usuariosd], [4, 7, usuariosd], [5, 7, usuariosd],
+             [[1, 7, usuariosd], [2, 7, usuariosd], [3, 7, usuariosd], [4, 7, usuariosd], [5, 7, usuariosd],
               [6, 7, usuariosd], [7, 7, usuariosd], [8, 7, usuariosd], [9, 7, usuariosd], [10, 7, usuariosd],
               [11, 7, usuariosd], [12, 7, usuariosd], [13, 7, usuariosd], [14, 7, usuariosd], [15, 7, usuariosd],
               [16, 7, usuariosd], [17, 7, usuariosd], [18, 7, usuariosd], [19, 7, usuariosd], [20, 7, usuariosd],
               [21, 7, usuariosd], [22, 7, usuariosd], [23, 7, usuariosd], [24, 7, usuariosd], [25, 7, usuariosd],
               [26, 7, usuariosd], [27, 7, usuariosd], [28, 7, usuariosd], [29, 7, usuariosd], [30, 7, usuariosd],
               [31, 7, usuariosd]],
-              [[1, 8, usuariosd], [2, 8, usuariosd], [3, 8, usuariosd], [4, 8, usuariosd], [5, 8, usuariosd],
+             [[1, 8, usuariosd], [2, 8, usuariosd], [3, 8, usuariosd], [4, 8, usuariosd], [5, 8, usuariosd],
               [6, 8, usuariosd], [7, 8, usuariosd], [8, 8, usuariosd], [9, 8, usuariosd], [10, 8, usuariosd],
               [11, 8, usuariosd], [12, 8, usuariosd], [13, 8, usuariosd], [14, 8, usuariosd], [15, 8, usuariosd],
               [16, 8, usuariosd], [17, 8, usuariosd], [18, 8, usuariosd], [19, 8, usuariosd], [20, 8, usuariosd],
               [21, 8, usuariosd], [22, 8, usuariosd], [23, 8, usuariosd], [24, 8, usuariosd], [25, 8, usuariosd],
               [26, 8, usuariosd], [27, 8, usuariosd], [28, 8, usuariosd], [29, 8, usuariosd], [30, 8, usuariosd],
               [31, 8, usuariosd]],
-              [[1, 9, usuariosd], [2, 9, usuariosd], [3, 9, usuariosd], [4, 9, usuariosd], [5, 9, usuariosd],
+             [[1, 9, usuariosd], [2, 9, usuariosd], [3, 9, usuariosd], [4, 9, usuariosd], [5, 9, usuariosd],
               [6, 9, usuariosd], [7, 9, usuariosd], [8, 9, usuariosd], [9, 9, usuariosd], [10, 9, usuariosd],
               [11, 9, usuariosd], [12, 9, usuariosd], [13, 9, usuariosd], [14, 9, usuariosd], [15, 9, usuariosd],
               [16, 9, usuariosd], [17, 9, usuariosd], [18, 9, usuariosd], [19, 9, usuariosd], [20, 9, usuariosd],
               [21, 9, usuariosd], [22, 9, usuariosd], [23, 9, usuariosd], [24, 9, usuariosd], [25, 9, usuariosd],
               [26, 9, usuariosd], [27, 9, usuariosd], [28, 9, usuariosd], [29, 9, usuariosd], [30, 9, usuariosd],
               [31, 9, usuariosd]],
-              [[1, 10, usuariosd], [2, 10, usuariosd], [3, 10, usuariosd], [4, 10, usuariosd], [5, 10, usuariosd],
+             [[1, 10, usuariosd], [2, 10, usuariosd], [3, 10, usuariosd], [4, 10, usuariosd], [5, 10, usuariosd],
               [6, 10, usuariosd], [7, 10, usuariosd], [8, 10, usuariosd], [9, 10, usuariosd], [10, 10, usuariosd],
               [11, 10, usuariosd], [12, 10, usuariosd], [13, 10, usuariosd], [14, 10, usuariosd], [15, 10, usuariosd],
               [16, 10, usuariosd], [17, 10, usuariosd], [18, 10, usuariosd], [19, 10, usuariosd], [20, 10, usuariosd],
               [21, 10, usuariosd], [22, 10, usuariosd], [23, 10, usuariosd], [24, 10, usuariosd], [25, 10, usuariosd],
               [26, 10, usuariosd], [27, 10, usuariosd], [28, 10, usuariosd], [29, 10, usuariosd], [30, 10, usuariosd],
               [31, 10, usuariosd]],
-              [[1, 11, usuariosd], [2, 11, usuariosd], [3, 11, usuariosd], [4, 11, usuariosd], [5, 11, usuariosd],
+             [[1, 11, usuariosd], [2, 11, usuariosd], [3, 11, usuariosd], [4, 11, usuariosd], [5, 11, usuariosd],
               [6, 11, usuariosd], [7, 11, usuariosd], [8, 11, usuariosd], [9, 11, usuariosd], [10, 11, usuariosd],
               [11, 11, usuariosd], [12, 11, usuariosd], [13, 11, usuariosd], [14, 11, usuariosd], [15, 11, usuariosd],
               [16, 11, usuariosd], [17, 11, usuariosd], [18, 11, usuariosd], [19, 11, usuariosd], [20, 11, usuariosd],
               [21, 11, usuariosd], [22, 11, usuariosd], [23, 11, usuariosd], [24, 11, usuariosd], [25, 11, usuariosd],
               [26, 11, usuariosd], [27, 11, usuariosd], [28, 11, usuariosd], [29, 11, usuariosd], [30, 11, usuariosd],
               [31, 11, usuariosd]],
-              [[1, 12, usuariosd], [2, 12, usuariosd], [3, 12, usuariosd], [4, 12, usuariosd], [5, 12, usuariosd],
+             [[1, 12, usuariosd], [2, 12, usuariosd], [3, 12, usuariosd], [4, 12, usuariosd], [5, 12, usuariosd],
               [6, 12, usuariosd], [7, 12, usuariosd], [8, 12, usuariosd], [9, 12, usuariosd], [10, 12, usuariosd],
               [11, 12, usuariosd], [12, 12, usuariosd], [13, 12, usuariosd], [14, 12, usuariosd], [15, 12, usuariosd],
               [16, 12, usuariosd], [17, 12, usuariosd], [18, 12, usuariosd], [19, 12, usuariosd], [20, 12, usuariosd],
               [21, 12, usuariosd], [22, 12, usuariosd], [23, 12, usuariosd], [24, 12, usuariosd], [25, 12, usuariosd],
               [26, 12, usuariosd], [27, 12, usuariosd], [28, 12, usuariosd], [29, 12, usuariosd], [30, 12, usuariosd],
               [31, 12, usuariosd]]
-              ]   # enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre
+             ]  # enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre
 
     intervalo = mes(meses, acum, mesi, mesf, diai, diaf)
-    print(intervalo)
+    print(f"\nEste es el intervalo que escogió:\n{intervalo}\n")
     asistencia(intervalo)
-    print(intervalo)
+    # print(intervalo)
     dia_asistencia(intervalo)
 
+
 main()
+
 
 
 
