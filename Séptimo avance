@@ -23,11 +23,13 @@ def mes(meses, acum, mesi, mesf, diai, diaf):
 """
 def quitar_intervalo(intervalo):
     cond = 1
-    while condición == 1:
+    while cond == 1:
         cond = int(input("Quieres quitar un día del intervalo? si(1), no(0): "))
-        if quitar == 1
-        for in intervalo
-            (if condicion de los días buscados)
+        quitar = int(input("Cuál es el día que quieres quitar?: "))
+        if cond == 1
+           for i in intervalo
+             if quitar == i[0]
+                intervalo.remove #todo tengo que buscar como se puede quitar de una lista un valor.
         else #(0)
             cond = 0    
 """
