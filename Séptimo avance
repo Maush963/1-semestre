@@ -20,19 +20,38 @@ def mes(meses, acum, mesi, mesf, diai, diaf):
                 if info[0] == diaf and info[1] == mesf:
                     break
     return inter
-"""
-def quitar_intervalo(intervalo):
+
+def max_y_min(intervalo,mesi,mesf):
+    mlista =[]
+    for info in range(mesi, mesf + 1):
+        lista = []
+        for cont in intervalo:
+            if info == cont[1]:
+                lista.append(cont[0])
+        mlista.append([max(lista),min(lista),info])
+    print("máximo,mínmo,mes",mlista)
+    return mlista
+
+
+def quitar_intervalo(intervalo,mlista):
+    inter = intervalo
     cond = 1
     while cond == 1:
         cond = int(input("Quieres quitar un día del intervalo? si(1), no(0): "))
-        quitar = int(input("Cuál es el día que quieres quitar?: "))
-        if cond == 1
-           for i in intervalo
-             if quitar == i[0]
-                intervalo.remove #todo tengo que buscar como se puede quitar de una lista un valor.
-        else #(0)
-            cond = 0    
-"""
+        if cond == 0:
+            break
+        mesq = int(input("Cuál es el mes que quieres quitar?: "))
+        diaq = int(input("Cuál es el día que quieres quitar?: "))
+        """
+        while mientras diaq dentro de los limites del mes que es y que mes este dentro de los limites de los q pedi Y tambien que este dentro del rango de max y min de dias dentro del mes 
+        mesq depende de mesi y mesf
+        """
+        for i in inter:
+            if diaq == i[0]:#falta corroborar que sea el mes del dia
+                inter.remove(i)
+                print(inter)
+    return inter
+
 
 def asistencia(intervalo):
     cantusuarios = int(input("Digite la cantidad de usuarios que asistirán a la reunion: "))
@@ -222,13 +241,14 @@ def main():
 
     intervalo = mes(meses, acum, mesi, mesf, diai, diaf)
     print(f"\nEste es el intervalo que escogió:\n{intervalo}\n")
+    mlista = max_y_min(intervalo,mesi,mesf)
+    quitar_intervalo(intervalo,mlista)
     asistencia(intervalo)
     # print(intervalo)
     dia_asistencia(intervalo)
 
 
 main()
-
 
 
 
