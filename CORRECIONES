@@ -1,0 +1,118 @@
+Sub-Competencia: usa operadores aritméticos de manera eficaz (avance 2)
+
+Error original: Lo use para una función que no estaba completa
+
+    diai=diai-31
+    intervalo=intervalo+diaf+diai
+    dian=int(intput("Hay alguna excepción dentro del intervalo de tiempo que introdujo? si=1 no=0"))
+    if dian==1:
+
+Cambio realizado: Cambie por completo la función y use un acumulador para una validación
+
+    if cont > i and (mest == quitar_asistencia_mes and diat == quitar_asistencia_dia):
+                    
+    mest = quitar_asistencia_mes
+    diat = quitar_asistencia_dia
+    cont += 1
+
+Líneas de código donde se ve la corrección: 73 - 87
+
+===============================================================================================================
+
+Sub-Competencia: Separa el código en funciones pequeñas reusables, haciendo uso correcto de paso por parametros y return (avance 3)
+
+Error original: No hubo entrega
+
+Cambio realizado: Genere las siguentes funciones que se usan dentro del main
+
+    def mes(meses, mesi, mesf, diai, diaf):
+    def max_y_min(intervalo, mesi, mesf):
+    def quitar_intervalo(intervalo, mlista, mesi, mesf):
+    def asistencia(intervalo, mlista, mesi, mesf):
+    def dia_asistencia(intervalo):
+    def es_num(cadena):
+
+
+Líneas de código donde se ve la corrección:
+
+    mes 1-13
+    max_y_min 16-25
+    quitar_intervalo 28-49
+    asistencia 52-90
+    dia_asistencia 93-98
+    es_num 101-106
+    
+===============================================================================================================
+
+Sub-Competencia: aplica estructuras condicionales para resolver un problema (avance 4)
+
+Error original: La condición es correcta, pero no soluciona nada, necesita más condiciones.
+
+    if (mesi > 12 or mesi < 0 or mesf > 12 or mesf < 0):
+    print("No esta dando una fecha real")
+
+Cambio realizado: Cambie ese if por un while, pero utilice los ifs para hacer el intervalo.
+    
+    for cont in meses:
+        for info in cont:
+            if mesf == mesi and info[0] == diaf + 1:
+                break
+            if info[1] == mesi and info[0] >= diai:
+                inter.append(info)
+            if mesf >= info[1] > mesi:
+                inter.append(info)
+                if info[0] == diaf and info[1] == mesf:
+                    break
+
+
+Líneas de código donde se ve la corrección: 1-13
+
+===============================================================================================================
+
+Sub-Competencia: aplica estructuras cíclicas para resolver un problema de manera eficiente (avance 5)
+
+Error original: Hice ciclos que no eran útiles para la solución.
+
+    while (canth > 0): 
+        print("\nDigite las posibles horas para la reunión")
+        hora1 = int(input("hora:"))
+        canth = canth - 1
+        print(hora1)
+
+Cambio realizado: Los cambie por completo por ciclos que aseguran que las fechas sean correctas.
+    
+    while not es_num(diaf):
+        diaf = (input('Ese no es un valor valido, inténtelo de nuevo: '))
+        diaf = int(diaf)
+    while diaf < 1 or diaf > 31:
+       print("Esta no es una expresión valida")
+       diaf = int(input('Digite el día final una vez más: '))
+    while (diaf < diai) and (mesi == mesf):
+       print("Esta no es una expresión valida")
+       diaf = int(input('Digite el día final una vez más: '))
+
+Líneas de código donde se ve la corrección: 148-156
+
+===============================================================================================================
+
+Sub-Competencia: usa la forma más a apropiada al problema para guardar los datos (listas, variable, tipo de dato, etc...) (avance 6)  (listas)
+
+Error original: Tenía una lista pero no le estaba dando uso apropiado, todavía no generaba una función que la pudiera leer.
+
+      meses=[[[1,1],[2,1],[3,1],[4,1],[5,1],[6,1],[7,1],[8,1],[9,1],[10,1],
+            [11,1],[12,1],[13,1],[14,1],[15,1],[16,1],[17,1],[18,1],[19,1],[20,1],
+            [22,1],[22,1],[23,1],[24,1],[25,1],[26,1],[27,1],[28,1],[29,1],[30,1],
+            [31,1]]]
+
+Cambio realizado: Añadí, ua variable para guardar un valor por cada día y una función que la puede manipular.
+
+    meses = [[[1, 1, usuariosd], [2, 1, usuariosd], [3, 1, usuariosd], [4, 1, usuariosd], [5, 1, usuariosd],
+              [6, 1, usuariosd], [7, 1, usuariosd], [8, 1, usuariosd], [9, 1, usuariosd], [10, 1, usuariosd],
+              [11, 1, usuariosd], [12, 1, usuariosd], [13, 1, usuariosd], [14, 1, usuariosd], [15, 1, usuariosd],
+              [16, 1, usuariosd], [17, 1, usuariosd], [18, 1, usuariosd], [19, 1, usuariosd], [20, 1, usuariosd],
+              [21, 1, usuariosd], [22, 1, usuariosd], [23, 1, usuariosd], [24, 1, usuariosd], [25, 1, usuariosd],
+              [26, 1, usuariosd], [27, 1, usuariosd], [28, 1, usuariosd], [29, 1, usuariosd], [30, 1, usuariosd],
+              [31, 1, usuariosd]],
+
+Líneas de código donde se ve la corrección: 167-250
+   
